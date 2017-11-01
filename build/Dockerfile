@@ -36,6 +36,7 @@ RUN gem install asciidoctor -v 1.5.6.1
 RUN gem install -n /usr/local/bin asciidoctor-pdf --pre -v 1.5.0.alpha.16; asciidoctor-pdf -v
 
 COPY create-pdf.sh /opt/bin/
+ADD https://raw.githubusercontent.com/asciidoctor/asciidoctor-extensions-lab/master/lib/sectnumoffset-treeprocessor.rb /opt/bin
 
 WORKDIR /opt/adoc
 

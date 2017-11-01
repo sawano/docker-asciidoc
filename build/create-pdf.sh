@@ -7,9 +7,8 @@ function create_pdf_from_file() {
     local OUT_DIR=$2
 
     echo "Creating PDF from '${SRC_FILE}'..."
-    asciidoctor-pdf -D "${OUT_DIR}" "${SRC_FILE}" | exit 1;
+    asciidoctor-pdf -r /opt/bin/sectnumoffset-treeprocessor.rb -D "${OUT_DIR}" "${SRC_FILE}" | exit 1;
 }
-
 
 function create_pdf_from_book() {
     local SRC_DIR=$1

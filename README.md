@@ -13,7 +13,7 @@ You can create a PDF from all .adoc files in the current directory by invoking:
 
 Or you can use a shell script to automate the process (see the `create-pdf-with-docker.sh` in the source repo or the example below).
 
-### To create PDFs from fiels in the current directory
+### To create PDFs from files in the current directory
 
 `:> ./create-pdf-with-docker.sh`
 

@@ -6,7 +6,7 @@ function create_pdf_from_file() {
     local SRC_FILE=$1
     local OUT_DIR=$2
 
-    echo " * creating PDF from '${SRC_FILE}'..."
+    echo "Creating PDF from '${SRC_FILE}'..."
     asciidoctor-pdf -D "${OUT_DIR}" "${SRC_FILE}" | exit 1;
 }
 
@@ -42,15 +42,11 @@ function create_individual_file_pdfs() {
     local SRC_DIR=$1
     local OUT_DIR=$2
 
-    for file in "${SRC_DIR}"/* "${SRC_DIR}"/**/* ; do
+    for file in $(find "${SRC_DIR}" -type f -name '*.adoc') ; do
 
         echo "Found file: '${file}'"
 
-        if [[ $file =~ .*\.adoc$ ]]; then # TODO this regexp is not perfect but might be good enough...
-            create_pdf_from_file "${file}" "${OUT_DIR}"
-        else
-            echo " - ignoring"
-        fi
+        create_pdf_from_file "${file}" "${OUT_DIR}"
 
     done;
 }

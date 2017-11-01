@@ -1,0 +1,25 @@
+My book title
+================
+:author:  Daniel Sawano
+:doctype: book
+:toc:
+:toclevels: 3
+
+:sectnums!:
+include::chapter_01/ch01_part1.adoc[]
+
+:leveloffset: 1
+
+:sectnums:
+:imagesdir: ./chapter_01
+include::chapter_01/ch01.adoc[]
+
+:imagesdir: ./chapter_02
+include::chapter_02/ch02.adoc[]
+
+:sectnums!:
+include::chapter_03/ch03_part2.adoc[]
+
+:sectnums:
+:imagesdir: ./chapter_03
+include::chapter_03/ch03.adoc[]

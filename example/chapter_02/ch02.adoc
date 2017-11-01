@@ -1,0 +1,44 @@
+ifndef::leveloffset[]
+// This section is processed when a chapter is processed standalone
+= My book title
+:leveloffset: 1
+// Adding TOC as useful overview during writing
+:toc:
+:toclevels: 6
+:sectnums:
+:sectnumoffset: 1
+endif::[]
+
+[[chapter-02]]
+= Chapter two title
+:chapter: 2
+:sectnums:
+:figure-caption: Figure {chapter}.
+:listing-caption: Listing {chapter}.
+:table-caption: Table {chapter}.
+:author:  Daniel Sawano
+:booktitle: My book title
+
+An culpa incurreret comprehenderit. Arbitror ea elit, senserit an quid appellat.  Illum nostrud illustriora et
+incurreret quis a vidisse distinguantur, anim in  commodo, si non exquisitaque. Senserit distinguantur a commodo,
+offendit o  appellat, quibusdam illum legam eiusmod ipsum, quae te aut quae  cupidatat.Incurreret in consequat quo
+cernantur labore summis sed cillum. O  appellat hic cernantur.
+
+
+== Subject 1
+
+Te legam probant, ubi et despicationes, quamquam esse id consequat cohaerescant  te singulis sunt occaecat. Ex occaecat
+concursionibus. Sint pariatur id anim  aute. Ut esse dolore qui mentitum, se amet incurreret possumus.Nostrud velit
+elit aliquip elit ea illum ubi admodum, id est eram deserunt sed officia e  constias, senserit sint dolore expetendis
+noster ubi expetendis ab quid  expetendis quo hic tempor eiusmod voluptatibus, ex sed irure legam malis. Ab  summis
+possumus cernantur. Possumus in eram doctrina. Elit arbitrantur probant  eram nescius, possumus adipisicing ad appellat.
+
+
+== Subject 2
+
+Legam quo ubi quem nostrud, mandaremus noster sint ut quem. Occaecat illum  laborum, tempor possumus a irure elit do non
+malis magna aut appellat, noster  relinqueret arbitror sint excepteur. Iudicem ne nescius, dolore ubi occaecat in
+summis te veniam litteris est eiusmod si fore e ne eram pariatur, nulla et  pariatur, mentitum culpa probant arbitror ea
+eu mentitum an probant qui  incurreret te magna appellat. O ubi sunt magna tamen, ad summis export magna  fabulas de
+culpa non constias, ubi nulla fabulas.Labore laboris sempiternum ea  consequat in incurreret. Quo quae quo irure, ab aut
+tractavissent. Anim vidisse  reprehenderit, do anim despicationes.

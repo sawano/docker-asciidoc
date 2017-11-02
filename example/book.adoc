@@ -1,5 +1,4 @@
-My book title
-================
+= My book title
 :author:  Daniel Sawano
 :doctype: book
 :toc:

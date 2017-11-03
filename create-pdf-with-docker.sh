@@ -15,4 +15,4 @@ then
 fi
 
 # Convert all .adoc files from current directory
-docker run -it --rm -v $PWD:/opt/workdir sawano/asciidoc /bin/bash -c "ls; cd /opt/workdir; /opt/bin/create-pdf.sh /opt/workdir"
+docker run -it --rm -v $PWD:/opt/workdir sawano/asciidoc /bin/bash -c "cd /opt/workdir; /opt/bin/create-pdf.sh /opt/workdir"

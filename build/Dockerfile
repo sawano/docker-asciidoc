@@ -38,6 +38,25 @@ RUN gem install -n /usr/local/bin asciidoctor-pdf --pre -v 1.5.0.alpha.16; ascii
 COPY create-pdf.sh /opt/bin/
 ADD https://raw.githubusercontent.com/asciidoctor/asciidoctor-extensions-lab/master/lib/sectnumoffset-treeprocessor.rb /opt/bin
 
+#Install extra fonts
+RUN apt-get update && apt-get install -y -q \
+    fonts-inconsolata \
+    fonts-liberation && \
+    rm -rf /var/lib/apt/lists
+
+# Convert Inconsolata otf to ttf
+RUN apt-get update && apt-get install -y \
+    fontforge && \
+    rm -rf /var/lib/apt/lists
+RUN fontforge -lang=ff -c 'Open("/usr/share/fonts/truetype/inconsolata/Inconsolata.otf"); Generate("/usr/share/fonts/truetype/inconsolata/Inconsolata.ttf"); Close();'
+RUN apt-get --purge autoremove -y fontforge
+RUN ln -s /usr/share/fonts/truetype/inconsolata/Inconsolata.ttf /var/lib/gems/2.3.0/gems/asciidoctor-pdf-1.5.0.alpha.16/data/fonts/Inconsolata.ttf
+
+COPY link-fonts.sh /opt/bin
+RUN /opt/bin/link-fonts.sh /usr/share/fonts/truetype /var/lib/gems/2.3.0/gems/asciidoctor-pdf-1.5.0.alpha.16 && \
+    rm /opt/bin/link-fonts.sh
+
+
 WORKDIR /opt/adoc
 
 #CMD /bin/bash

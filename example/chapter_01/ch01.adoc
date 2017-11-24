@@ -41,3 +41,20 @@ summis te veniam litteris est eiusmod si fore e ne eram pariatur, nulla et  pari
 eu mentitum an probant qui  incurreret te magna appellat. O ubi sunt magna tamen, ad summis export magna  fabulas de
 culpa non constias, ubi nulla fabulas.Labore laboris sempiternum ea  consequat in incurreret. Quo quae quo irure, ab aut
 tractavissent. Anim vidisse  reprehenderit, do anim despicationes.
+
+
+.Code example with callouts
+[source,java]
+----
+
+public class MyClass {
+    private int myInt;
+
+    public MyClass() {
+        myInt = 1;               <1>
+    }
+
+}
+----
+<1> `myInt` is set to one (1) at construction time
+

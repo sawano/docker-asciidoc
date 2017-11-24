@@ -35,13 +35,16 @@ RUN gem install asciidoctor -v 1.5.6.1
 #Install asciidoctor-pdf
 RUN gem install -n /usr/local/bin asciidoctor-pdf --pre -v 1.5.0.alpha.16; asciidoctor-pdf -v
 
+#Add sectnumoffset extension
 COPY create-pdf.sh /opt/bin/
 ADD https://raw.githubusercontent.com/asciidoctor/asciidoctor-extensions-lab/master/lib/sectnumoffset-treeprocessor.rb /opt/bin
 
 #Install extra fonts
 RUN apt-get update && apt-get install -y -q \
     fonts-inconsolata \
-    fonts-liberation && \
+    fonts-liberation \
+    fonts-mplus \
+    ttf-ubuntu-font-family && \
     rm -rf /var/lib/apt/lists
 
 # Convert Inconsolata otf to ttf
@@ -50,12 +53,14 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists
 RUN fontforge -lang=ff -c 'Open("/usr/share/fonts/truetype/inconsolata/Inconsolata.otf"); Generate("/usr/share/fonts/truetype/inconsolata/Inconsolata.ttf"); Close();'
 RUN apt-get --purge autoremove -y fontforge
-RUN ln -s /usr/share/fonts/truetype/inconsolata/Inconsolata.ttf /var/lib/gems/2.3.0/gems/asciidoctor-pdf-1.5.0.alpha.16/data/fonts/Inconsolata.ttf
 
-COPY link-fonts.sh /opt/bin
-RUN /opt/bin/link-fonts.sh /usr/share/fonts/truetype /var/lib/gems/2.3.0/gems/asciidoctor-pdf-1.5.0.alpha.16 && \
-    rm /opt/bin/link-fonts.sh
-
+#Add fonts to asciidoctor
+RUN fontsDir='/usr/share/fonts/truetype' && \
+    asciiDoctorFontsDir='/var/lib/gems/2.3.0/gems/asciidoctor-pdf-1.5.0.alpha.16/data/fonts' && \
+    ln -s $fontsDir/liberation/*.ttf $asciiDoctorFontsDir/ && \
+    ln -s $fontsDir/ubuntu-font-family/*.ttf $asciiDoctorFontsDir/ && \
+    ln -s $fontsDir/mplus/*.ttf $asciiDoctorFontsDir/ && \
+    ln -s $fontsDir/inconsolata/*.ttf $asciiDoctorFontsDir/
 
 WORKDIR /opt/adoc
 

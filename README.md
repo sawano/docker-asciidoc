@@ -7,22 +7,31 @@ It can also be used as a base image for creating custom images with added style 
 
 ## Example usage
 
-You can create a PDF from all .adoc files in the current directory by invoking:
-
-`docker run -it --rm -v $PWD:/opt/workdir sawano/asciidoc /bin/bash -c "ls; cd /opt/workdir; /opt/bin/create-pdf.sh /opt/workdir"`
-
-Or you can use a shell script to automate the process (see the `create-pdf-with-docker.sh` in the source repo or the example below).
-
 ### To create PDFs from files in the current directory
 
-`:> ./create-pdf-with-docker.sh`
+````bash
+:> ./create-pdf-with-docker.sh
+````
 
 ### To create PDFs from files in specific directory
 
-`:> ./create-pdf-with-docker.sh dir-with-adoc-files`
+````bash
+:> ./create-pdf-with-docker.sh dir-with-adoc-files
+````
 
+For example, if you checkout this repo you can generate example PDFs by invoking `./create-pdf-with-docker.sh example` from the root directory.
 
-### Example shell script
+### To manually invoke Docker
+
+You can create a PDF from all .adoc files in the current directory by invoking:
+
+````bash
+docker run -it --rm -v $PWD:/opt/workdir sawano/asciidoc /bin/bash -c "ls; cd /opt/workdir; /opt/bin/create-pdf.sh /opt/workdir"
+````
+
+This would be the equivalent of calling `create-pdf-with-docker.sh` from the examples above.
+
+### Example shell script for automating PDF generation
 
 ````bash
 #!/usr/bin/env bash
